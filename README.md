@@ -40,6 +40,19 @@ docker-compose run --rm mixcloud-play {any command here}
 
 Built app will output to `./dist/mac/Mixcloud Play.app`
 
+## Notarize the app for Distribution
+
+ Set the following environment variables to authenticate with your Apple ID.
+
+- `APPLE_ID`: The username of your Apple developer account
+- `APPLE_ID_PASSWORD`: An app-specific password. You can create one at https://appleid.apple.com
+
+See [electron-builder-notarize](https://github.com/karaggeorge/electron-builder-notarize) for more authentication options.
+
+Electron-builder automactically finds an Apple Developer Identity on your mac, if you have multiple, you can force the one you want to use by setting the following environment variable, with the full certificate name (found in Keychains):
+
+- `export CSC_NAME="Apple Development: yourAppleDevloper@mac.com (XBHXRNXWNH)"`
+
 ## Auto Update Publishing (GitHub)
 
 Publish app updates is set-up as per the [GithubOptions](https://www.electron.build/configuration/publish#githuboptions) for Electron Build's [Auto Update](https://www.electron.build/auto-update).
